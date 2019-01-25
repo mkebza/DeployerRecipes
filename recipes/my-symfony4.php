@@ -36,7 +36,7 @@ task('deploy:cronjobs', function () {
         }, get('cron_jobs'))),
         $cronJobKey
     );
-    
+
     $actualContent = run('crontab -l');
 
     $matchRe = sprintf("@(# %s - BEGIN.*# %s - END)@sm", preg_quote($cronJobKey, '@'), preg_quote($cronJobKey, '@'));
@@ -52,7 +52,7 @@ task('deploy:cronjobs', function () {
 // Tasks
 task('js:yarn-install-vendors', 'yarn install');
 task('js:build', 'yarn run build');
-task('deploy:reload-php-fpm', 'systemctl reload php7.2-fpm.service');
+task('deploy:reload-php-fpm', 'sudo systemctl reload php7.2-fpm.service');
 
 
 // Defautl configuration
