@@ -15,6 +15,12 @@
         "/Tests/"
       ]
     },
+
+    "autoload": {
+      "files": [
+      "autoload.php"
+      ]
+    },
     "require": {
     },
     "require-dev": {
