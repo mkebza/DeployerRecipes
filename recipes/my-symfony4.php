@@ -46,7 +46,7 @@ task('deploy:cronjobs', function () {
         $actualContent .= "\n\n".$newDefinition;
     }
 
-    run('echo "' . $actualContent . '" | crontab -');
+    run('echo "' . trim($actualContent) . '" | crontab -');
 });
 
 // Tasks
@@ -58,7 +58,9 @@ task('deploy:reload-php-fpm', 'sudo systemctl reload php7.2-fpm.service');
 // Defautl configuration
 set('default_timeout', 900);
 set('git_tty', true);
-set('cron_job_key', get('application'));
+set('cron_job_key', function() {
+    return get('application');
+});
 set('cron_jobs', []);
 set('allow_anonymous_stats', false);
 set('keep_releases', 3);

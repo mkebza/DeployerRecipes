@@ -13,12 +13,9 @@
       "psr-4": { "MKebza\\DeployerRecipes\\": "" },
       "exclude-from-classmap": [
         "/Tests/"
-      ]
-    },
-
-    "autoload": {
+      ],
       "files": [
-      "autoload.php"
+        "autoload.php"
       ]
     },
     "require": {
