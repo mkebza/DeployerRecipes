@@ -96,6 +96,10 @@ function get_deploy_tasks() {
             'js:build',
         ]);
     }
+    
+    if (has('database_migration') && !get('database_migration')) {
+        unset($taskOrder[10]);
+    }    
 
     return $taskOrder;
 }
